@@ -222,3 +222,45 @@ html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
 }
+
+.site-header-bar {
+  font-size: 0.875em;
+  transition: all 0.5s;
+  z-index: 100;
+  color: black;
+  background-color: white;
+  padding: 0px;
+}
+
+.site-header-bar-main {
+  color: white;
+  background-color: maroon;
+}
+
+.main {
+  padding-top: 84px;
+}
+
+.hero-text {
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Starts 20px lower than its position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* Ends at its natural position */
+  }
+}
+
+.fade-in-element {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.posterContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

@@ -7,6 +7,12 @@ import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { PostersBlock } from './PostersBlock/Component'
+import { getPayload } from 'payload'
+import config from '@payload-config'
+
+const payload = await getPayload({ config })
+
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -14,6 +20,7 @@ const blockComponents = {
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
+  posters: PostersBlock
 }
 
 export const RenderBlocks: React.FC<{
@@ -28,6 +35,8 @@ export const RenderBlocks: React.FC<{
       <Fragment>
         {blocks.map((block, index) => {
           const { blockType } = block
+
+          payload.logger.info(block)
 
           if (blockType && blockType in blockComponents) {
             const Block = blockComponents[blockType]

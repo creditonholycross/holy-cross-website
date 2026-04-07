@@ -10,12 +10,40 @@ export const Header: GlobalConfig = {
   },
   fields: [
     {
+      name: 'logo',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+    },
+    {
+      name: 'logoLight',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+    },
+    {
       name: 'navItems',
       type: 'array',
       fields: [
         link({
           appearances: false,
         }),
+        {
+          name: 'innerNavItems',
+          type: 'array',
+          fields: [
+            link({
+              appearances: false,
+            }),
+          ],
+          maxRows: 6,
+          admin: {
+            initCollapsed: true,
+            components: {
+              RowLabel: '@/Header/RowLabel#RowLabel',
+            },
+          },
+        },
       ],
       maxRows: 6,
       admin: {
