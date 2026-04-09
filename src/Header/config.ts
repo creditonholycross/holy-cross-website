@@ -28,15 +28,32 @@ export const Header: GlobalConfig = {
         link({
           appearances: false,
         }),
+      ],
+      maxRows: 6,
+      admin: {
+        initCollapsed: true,
+        components: {
+          RowLabel: '@/Header/RowLabel#RowLabel',
+        },
+      },
+    },
+    {
+      name: 'nestedNavItems',
+      type: 'array',
+      fields: [
         {
-          name: 'innerNavItems',
+            name: 'label',
+            type: 'text',
+        },
+        {
+          name: 'links',
           type: 'array',
           fields: [
             link({
               appearances: false,
             }),
           ],
-          maxRows: 6,
+          maxRows: 20,
           admin: {
             initCollapsed: true,
             components: {
