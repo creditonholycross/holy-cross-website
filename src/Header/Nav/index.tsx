@@ -3,31 +3,22 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+
+
 import type { Header as HeaderType } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
 import { SearchIcon } from 'lucide-react'
 import { Media } from '@/components/Media'
+import { link } from 'fs'
+import { cn } from '@/utilities/ui'
 
-// export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
-//   const navItems = data?.navItems || []
-
-//   return (
-//     <nav className="flex gap-3 items-center">
-//       {navItems.map(({ link }, i) => {
-//         return <CMSLink key={i} {...link} appearance="link" />
-//       })}
-//       <Link href="/search">
-//         <span className="sr-only">Search</span>
-//         <SearchIcon className="w-5 text-primary" />
-//       </Link>
-//     </nav>
-//   )
-// }
 
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const navItems = data?.navItems || [];
+  const nestedNavItems = data?.nestedNavItems || [];
   const logo = data?.logo;
   const logoLight = data?.logoLight || data?.logo;
   const [navLight, setNavLight] = useState(false);
@@ -49,34 +40,52 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
 
   return (
     <header className={`fixed top-0 w-full z-50 shadow-sm font-sans text-slate-800 site-header-bar transition-all ${navLight ? 'site-header-bar-main' : ''}`}>
-      <nav className="container mx-auto flex items-center justify-between py-4">
-        <div className="flex-shrink-0">
-          <Link href="/">
-            <div className='max-w-[4rem] w-full top-0 transition-all'>
-              {logo && typeof logo === 'object' && (
-                  <Media resource={navLight ? logoLight : logo} />)}
-            </div>
-          </Link>
-        </div>
+      <nav className="container mx-auto flex items-center justify-between py-0">
 
-        <ul className="hidden md:flex items-center gap-8 text-[15px] font-semibold uppercase tracking-wider">
-        {navItems.map(({ link }, i) => {
-        return <li key={i}><CMSLink className={`hover:border-b-2 ${navLight ? 'border-b-white' : 'border-b-black'} pb-1`} key={i} {...link} appearance="inline" /></li>
-        })}
-        </ul>
-        {/* <Link href="/search">
-          <span className="sr-only">Search</span>
-          <SearchIcon className={`w-5 transition-all  ${navLight ? 'text-primary' : 'text-secondary'}`} />
-        </Link> */}
+        <NavigationMenu.Root className="relative z-10 flex w-screen justify-center border-b bg-white">
 
-        {/* MOBILE MENU ICON (Simplified) */}
-        <button className="md:hidden p-2">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
-        </button>
+          <div className="flex-1 m-3">
+            <Link href="/">
+              <div className='max-w-[4rem]'>
+                {logo && typeof logo === 'object' && (
+                    <Media resource={navLight ? logoLight : logo} />)}
+              </div>
+            </Link>
+          </div>
+
+          <NavigationMenu.List className="group flex list-none items-center justify-center p-1">
+
+            {nestedNavItems.map(({ label, links }, i) => {
+                return <NavigationMenu.Item key={i}>
+                    <NavigationMenu.Trigger className="group flex items-center justify-between gap-[2px] hidden md:block px-4 py-8 text-sm font-bold uppercase tracking-widest hover:text-blue-700">
+                      {label}
+                    </NavigationMenu.Trigger>
+                    <NavigationMenu.Content className="absolute top-0 left-0 w-full sm:w-auto">
+                      <div className="">
+                        <ul className="grid gap-8 p-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-[calc(100vw-2rem)] md:w-[90vw] lg:w-[80vw] xl:max-w-[1200px] max-w-[1600px] transition-all duration-300">
+                          {links?.map(({link}, i) => {
+                          return <li className="hover:underline" key={i}> 
+                              <NavigationMenu.Link asChild>
+                                <CMSLink className='text-lg font-bold' key={i} {...link} />
+                              </NavigationMenu.Link>
+                          </li>
+                          })}
+                        </ul>
+                      </div>
+                    </NavigationMenu.Content>
+                  </NavigationMenu.Item>
+                })}
+
+          </NavigationMenu.List>
+
+          <div className="absolute left-0 top-full flex w-full justify-center">
+            <NavigationMenu.Viewport className="NavigationMenuViewport relative z-11 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden border-t bg-white shadow-xl transition-[width,height,transform] duration-300 w-[1200px]" />
+          </div>
+
+          <div className="flex-1" />
+
+        </NavigationMenu.Root>
       </nav>
-
     </header>
   )
 }

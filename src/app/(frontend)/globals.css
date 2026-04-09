@@ -264,3 +264,106 @@ html[data-theme='light'] {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+/* Custom CSS for the Viewport */
+[data-radix-menu-viewport] {
+  /* Smoothly transition the size change */
+  transition: width 0.3s ease, height 0.3s ease;
+  will-change: width, height;
+}
+
+/* The "Enter" and "Exit" animations for the content inside */
+/* [data-state="open"] {
+  animation: scaleIn 200ms ease;
+}
+[data-state="closed"] {
+  animation: scaleOut 200ms ease;
+} */
+
+/* @keyframes scaleIn {
+  from { opacity: 0; transform: rotateX(-10deg) scale(0.9); }
+  to { opacity: 1; transform: rotateX(0) scale(1); }
+} */
+
+.NavigationMenuViewport[data-state="open"] {
+	animation: scaleIn 200ms ease;
+}
+.NavigationMenuViewport[data-state="closed"] {
+	animation: scaleOut 200ms ease;
+}
+
+/* Content sliding in from the right */
+[data-motion="from-end"] {
+  animation: enterFromRight 250ms ease;
+}
+/* Content sliding in from the left */
+[data-motion="from-start"] {
+  animation: enterFromLeft 250ms ease;
+}
+
+[data-motion="to-start"] {
+	animation-name: exitToLeft;
+}
+[data-motion="to-end"] {
+	animation-name: exitToRight;
+}
+
+@keyframes enterFromRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes enterFromLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-200px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes exitToRight {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(200px);
+	}
+}
+
+@keyframes exitToLeft {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(-200px);
+	}
+}
+
+@keyframes scaleIn {
+	from {
+		opacity: 0;
+		transform: rotateX(-30deg) scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: rotateX(0deg) scale(1);
+	}
+}
+
+@keyframes scaleOut {
+	from {
+		opacity: 1;
+		transform: rotateX(0deg) scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: rotateX(-10deg) scale(0.95);
+	}
+}

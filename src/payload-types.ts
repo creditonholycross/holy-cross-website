@@ -1740,7 +1740,13 @@ export interface Header {
           url?: string | null;
           label: string;
         };
-        innerNavItems?:
+        id?: string | null;
+      }[]
+    | null;
+  nestedNavItems?:
+    | {
+        label?: string | null;
+        links?:
           | {
               link: {
                 type?: ('reference' | 'custom') | null;
@@ -1814,7 +1820,13 @@ export interface HeaderSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
-        innerNavItems?:
+        id?: T;
+      };
+  nestedNavItems?:
+    | T
+    | {
+        label?: T;
+        links?:
           | T
           | {
               link?:
