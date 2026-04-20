@@ -292,6 +292,11 @@ html[data-theme='light'] {
 	animation: scaleOut 200ms ease;
 }
 
+.red-border {
+  border-bottom: maroon;
+  border-bottom-width: 8px;
+}
+
 /* Content sliding in from the right */
 [data-motion="from-end"] {
   animation: enterFromRight 250ms ease;
@@ -366,4 +371,57 @@ html[data-theme='light'] {
 		opacity: 0;
 		transform: rotateX(-10deg) scale(0.95);
 	}
+}
+
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #111;
+  font-family: sans-serif;
+  /* padding: 10px 0;
+  gap: 8px;
+  font-weight: 500;  */
+  transition: color 0.3s ease;
+}
+
+.arrow {
+  opacity: 0;
+  transform: translateX(-8px); /* Move it 8px to the left */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth "springy" timing */
+}
+
+/* 2. Hover State */
+.menu-item:hover {
+  /* color: #555; Optional: change text color on hover */
+}
+
+.menu-item:hover .arrow {
+  opacity: 1;
+  transform: translateX(0); /* Move it to its natural position */
+}
+
+.lexical-table-cell {
+  border: none !important;
+}
+
+.menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+/* Use a class like '.is-open' which you toggle via JavaScript */
+.menu-trigger.is-open .chevron {
+  transform: rotate(180deg);
 }
