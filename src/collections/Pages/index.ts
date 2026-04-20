@@ -8,6 +8,10 @@ import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { Posters } from '@/blocks/PostersBlock/config'
+import { TextImageBlock } from '@/blocks/TextImageBlock/config'
+import { Discover } from '@/blocks/DiscoverBlock/config'
+import { Table } from '@/blocks/TableBlock/config'
+import { Divider } from '@/blocks/Divider/config'
 import { hero } from '@/heros/config'
 import { slugField } from 'payload'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
@@ -62,6 +66,11 @@ export const Pages: CollectionConfig<'pages'> = {
       required: true,
     },
     {
+      name: 'shortDescription',
+      type: 'text',
+      required: false,
+    },
+    {
       type: 'tabs',
       tabs: [
         {
@@ -73,7 +82,18 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, Posters],
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+                TextImageBlock,
+                Posters,
+                Discover,
+                Table,
+                Divider,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,
