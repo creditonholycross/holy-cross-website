@@ -89,7 +89,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                                     {...link}
                                   />
                                   <svg
-                                    className="arrow"
+                                    className="arrow text-red-800"
                                     width="16"
                                     height="16"
                                     viewBox="0 0 16 16"

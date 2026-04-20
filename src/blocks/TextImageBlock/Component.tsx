@@ -34,9 +34,7 @@ export const TextImageBlock: React.FC<TextImageBlockProps> = (props) => {
             <div className="relative aspect-square w-82 overflow-hidden rounded-lg">
               {media && (
                 <Media
-                  imgClassName={cn(
-                    'absolute inset-0 w-full h-full object-cover border border-border rounded-[0.8rem]',
-                  )}
+                  imgClassName={cn('absolute inset-0 w-full h-full object-cover rounded-[0.8rem]')}
                   resource={media}
                 />
               )}
