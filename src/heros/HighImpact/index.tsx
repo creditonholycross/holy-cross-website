@@ -16,11 +16,9 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ media, richText }) => {
   })
 
   return (
-    <div
-      className="relative -mt-[10.4rem] flex items-center justify-center text-white"
-    >
+    <div className="relative -mt-[10.4rem] flex items-center justify-center text-white">
       <div className="container mt-auto mb-8 z-10 relative flex">
-        <div className='fade-in-element'>
+        <div className="fade-in-element">
           {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
           {/* {Array.isArray(links) && links.length > 0 && (
             <ul className="flex md:justify-center gap-4">
