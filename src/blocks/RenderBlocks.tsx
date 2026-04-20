@@ -44,7 +44,7 @@ export const RenderBlocks: React.FC<{
           payload.logger.info(block)
 
           if (blockType && blockType in blockComponents) {
-            const Block = blockComponents[blockType]
+            const Block = (blockComponents as any)[blockType]
 
             if (Block) {
               return (
