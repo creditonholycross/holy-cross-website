@@ -10,18 +10,6 @@ export const Header: GlobalConfig = {
   },
   fields: [
     {
-      name: 'logo',
-      type: 'upload',
-      relationTo: 'media',
-      required: true,
-    },
-    {
-      name: 'logoLight',
-      type: 'upload',
-      relationTo: 'media',
-      required: false,
-    },
-    {
       name: 'navItems',
       type: 'array',
       fields: [
@@ -42,8 +30,8 @@ export const Header: GlobalConfig = {
       type: 'array',
       fields: [
         {
-            name: 'label',
-            type: 'text',
+          name: 'label',
+          type: 'text',
         },
         {
           name: 'links',

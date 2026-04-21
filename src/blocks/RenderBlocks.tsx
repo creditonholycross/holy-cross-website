@@ -7,7 +7,6 @@ import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
-import { PostersBlock } from './PostersBlock/Component'
 import { TextImageBlock } from './TextImageBlock/Component'
 import { DiscoverBlock } from './DiscoverBlock/Component'
 import { TableBlock } from './TableBlock/Component'
@@ -23,7 +22,6 @@ const blockComponents = {
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
-  posters: PostersBlock,
   textImageBlock: TextImageBlock,
   discover: DiscoverBlock,
   table: TableBlock,
@@ -46,7 +44,7 @@ export const RenderBlocks: React.FC<{
           payload.logger.info(block)
 
           if (blockType && blockType in blockComponents) {
-            const Block = blockComponents[blockType]
+            const Block = (blockComponents as any)[blockType]
 
             if (Block) {
               return (

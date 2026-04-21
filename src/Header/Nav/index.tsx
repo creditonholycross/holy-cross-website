@@ -13,12 +13,13 @@ import { SearchIcon } from 'lucide-react'
 import { Media } from '@/components/Media'
 import { link } from 'fs'
 import { cn } from '@/utilities/ui'
+import { Logo } from '@/components/Logo/Logo'
 
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const navItems = data?.navItems || []
   const nestedNavItems = data?.nestedNavItems || []
-  const logo = data?.logo
-  const logoLight = data?.logoLight || data?.logo
+  // const logo = data?.logo
+  // const logoLight = data?.logoLight || data?.logo
   const [navLight, setNavLight] = useState(false)
 
   // useEffect(() => {
@@ -44,10 +45,8 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
         <NavigationMenu.Root className="relative z-10 flex w-screen justify-center bg-white">
           <div className="flex-1 m-3">
             <Link className="items-center" href="/">
-              <div className="max-w-[5rem]">
-                {logo && typeof logo === 'object' && (
-                  <Media resource={navLight ? logoLight : logo} />
-                )}
+              <div>
+                <Logo className="max-w-[5.5rem]" />
               </div>
             </Link>
           </div>

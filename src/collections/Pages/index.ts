@@ -7,7 +7,6 @@ import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
-import { Posters } from '@/blocks/PostersBlock/config'
 import { TextImageBlock } from '@/blocks/TextImageBlock/config'
 import { Discover } from '@/blocks/DiscoverBlock/config'
 import { Table } from '@/blocks/TableBlock/config'
@@ -89,7 +88,6 @@ export const Pages: CollectionConfig<'pages'> = {
                 Archive,
                 FormBlock,
                 TextImageBlock,
-                Posters,
                 Discover,
                 Table,
                 Divider,

@@ -69,7 +69,6 @@ export interface Config {
   collections: {
     pages: Page;
     posts: Post;
-    posters: Poster;
     media: Media;
     categories: Category;
     users: User;
@@ -86,13 +85,12 @@ export interface Config {
   };
   collectionsJoins: {
     'payload-folders': {
-      documentsAndFolders: 'payload-folders' | 'posters' | 'media';
+      documentsAndFolders: 'payload-folders' | 'media';
     };
   };
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
-    posters: PostersSelect<false> | PostersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -211,7 +209,6 @@ export interface Page {
     | ArchiveBlock
     | FormBlock
     | TextImageBlock
-    | PostersBlock
     | DiscoverBlock
     | TableBlock
     | DividerBlock
@@ -392,10 +389,6 @@ export interface FolderInterface {
           value: string | FolderInterface;
         }
       | {
-          relationTo?: 'posters';
-          value: string | Poster;
-        }
-      | {
           relationTo?: 'media';
           value: string | Media;
         }
@@ -403,20 +396,7 @@ export interface FolderInterface {
     hasNextPage?: boolean;
     totalDocs?: number;
   };
-  folderType?: ('posters' | 'media')[] | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posters".
- */
-export interface Poster {
-  id: string;
-  title?: string | null;
-  slug?: string | null;
-  poster?: (string | null) | Media;
-  folder?: (string | null) | FolderInterface;
+  folderType?: 'media'[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -841,40 +821,6 @@ export interface TextImageBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "PostersBlock".
- */
-export interface PostersBlock {
-  introContent?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  populateBy?: ('collection' | 'selection') | null;
-  relationTo?: 'posters' | null;
-  categories?: (string | Category)[] | null;
-  limit?: number | null;
-  selectedDocs?:
-    | {
-        relationTo: 'posters';
-        value: string | Poster;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'posters';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "DiscoverBlock".
  */
 export interface DiscoverBlock {
@@ -1137,10 +1083,6 @@ export interface PayloadLockedDocument {
         value: string | Post;
       } | null)
     | ({
-        relationTo: 'posters';
-        value: string | Poster;
-      } | null)
-    | ({
         relationTo: 'media';
         value: string | Media;
       } | null)
@@ -1252,7 +1194,6 @@ export interface PagesSelect<T extends boolean = true> {
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         textImageBlock?: T | TextImageBlockSelect<T>;
-        posters?: T | PostersBlockSelect<T>;
         discover?: T | DiscoverBlockSelect<T>;
         table?: T | TableBlockSelect<T>;
         divider?: T | DividerBlockSelect<T>;
@@ -1369,20 +1310,6 @@ export interface TextImageBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "PostersBlock_select".
- */
-export interface PostersBlockSelect<T extends boolean = true> {
-  introContent?: T;
-  populateBy?: T;
-  relationTo?: T;
-  categories?: T;
-  limit?: T;
-  selectedDocs?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "DiscoverBlock_select".
  */
 export interface DiscoverBlockSelect<T extends boolean = true> {
@@ -1440,18 +1367,6 @@ export interface PostsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posters_select".
- */
-export interface PostersSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  poster?: T;
-  folder?: T;
-  updatedAt?: T;
-  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1871,8 +1786,6 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Header {
   id: string;
-  logo: string | Media;
-  logoLight?: (string | null) | Media;
   navItems?:
     | {
         link: {
@@ -1956,8 +1869,6 @@ export interface Footer {
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
-  logo?: T;
-  logoLight?: T;
   navItems?:
     | T
     | {
