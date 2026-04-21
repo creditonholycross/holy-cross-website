@@ -91,7 +91,7 @@ export const plugins: Plugin[] = [
     },
   }),
   vercelBlobStorage({
-    enabled: !!process.env.ENABLE_VERCEL_BLOB_STORAGE, // Optional, defaults to true
+    enabled: process.env.ENABLE_VERCEL_BLOB_STORAGE === 'true', // Optional, defaults to true
     // Specify which collections should use Vercel Blob
     collections: {
       media: true,
