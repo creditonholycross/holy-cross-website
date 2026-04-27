@@ -39,10 +39,10 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 shadow-sm font-sans text-slate-800 site-header-bar transition-all ${navLight ? 'site-header-bar-main' : ''}`}
+      className={`fixed top-0 w-full z-50 shadow-sm bg-orange-50 font-sans text-slate-800 site-header-bar transition-all ${navLight ? 'site-header-bar-main' : ''}`}
     >
       <nav className="container mx-auto flex items-center justify-between py-0">
-        <NavigationMenu.Root className="relative z-10 flex w-screen justify-center bg-white">
+        <NavigationMenu.Root className="relative z-10 flex w-screen justify-center bg-orange-50">
           <div className="flex-1 m-3">
             <Link className="items-center" href="/">
               <div>
@@ -83,7 +83,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                               <NavigationMenu.Link asChild>
                                 <div className="menu-item">
                                   <CMSLink
-                                    className="text-lg  hover:text-red-800"
+                                    className="text-xl font-sans hover:text-red-800"
                                     key={i}
                                     {...link}
                                   />
@@ -116,7 +116,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           </NavigationMenu.List>
 
           <div className="absolute left-0 top-full flex w-full justify-center">
-            <NavigationMenu.Viewport className="NavigationMenuViewport border-b-4 border-red-800 relative z-11 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden border-t bg-white shadow-xl transition-[width,height,transform] duration-300 w-[1200px]" />
+            <NavigationMenu.Viewport className="NavigationMenuViewport border-b-4 border-red-800 relative z-11 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden border-t bg-orange-50 shadow-xl transition-[width,height,transform] duration-300 w-[1200px]" />
           </div>
 
           <div className="flex-1" />

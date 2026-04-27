@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 
 import { cn } from '@/utilities/ui'
 import { GeistMono } from 'geist/font/mono'
@@ -16,11 +17,44 @@ import { draftMode } from 'next/headers'
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
+export const inDevEnvironment = !!process && process.env.NODE_ENV === 'development'
+
+const doveTypesFont = localFont({
+  src: './fonts/DovesType-Text.otf',
+  variable: '--font-dove-types',
+})
+
+const eBGarmondFont = localFont({
+  src: [
+    {
+      path: './fonts/EBGaramond-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/EBGaramond-Italic.ttf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: './fonts/EBGaramond-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+})
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html
+      className={cn(
+        process.env.NODE_ENV === 'development' ? eBGarmondFont.className : eBGarmondFont.className,
+      )}
+      lang="en"
+      suppressHydrationWarning
+    >
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />

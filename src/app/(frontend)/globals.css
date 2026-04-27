@@ -228,7 +228,7 @@ html[data-theme='light'] {
   transition: all 0.5s;
   z-index: 100;
   color: black;
-  background-color: white;
+
   padding: 0px;
 }
 
@@ -379,7 +379,6 @@ html[data-theme='light'] {
   align-items: center;
   text-decoration: none;
   color: #111;
-  font-family: sans-serif;
   /* padding: 10px 0;
   gap: 8px;
   font-weight: 500;  */
