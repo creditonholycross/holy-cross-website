@@ -2,6 +2,9 @@
 const config = {
   theme: {
     extend: {
+      // fontFamily: {
+      //   sans: ['var(--font-dove-types)', 'ui-sans-serif', 'system-ui'],
+      // },
       typography: () => ({
         DEFAULT: {
           css: [
