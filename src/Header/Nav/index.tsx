@@ -55,7 +55,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
             {nestedNavItems.map(({ label, links }, i) => {
               return (
                 <NavigationMenu.Item key={i}>
-                  <NavigationMenu.Trigger className="group flex items-center justify-between gap-[2px] hidden md:block px-4 py-8 text-sm font-bold uppercase tracking-widest hover:text-red-800">
+                  <NavigationMenu.Trigger className="group flex items-center justify-between gap-[2px] hidden md:block px-2 py-8 text-sm font-bold uppercase tracking-widest hover:text-red-800">
                     <div className="menu-trigger">
                       {label}
                       <svg
