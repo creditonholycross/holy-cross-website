@@ -50,7 +50,7 @@ export const Header: GlobalConfig = {
           },
         },
       ],
-      maxRows: 6,
+      maxRows: 10,
       admin: {
         initCollapsed: true,
         components: {
