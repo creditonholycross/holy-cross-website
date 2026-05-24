@@ -154,13 +154,6 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                   )
                 })}
               </NavigationMenu.List>
-
-              {/* <div className="absolute left-0 top-full flex w-full justify-center"> */}
-              {/* <NavigationMenu.Viewport className="NavigationMenuViewport border-b-4 border-red-800 relative z-11 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden border-t bg-orange-50 shadow-xl transition-[width,height,transform] duration-300 w-[1200px]" /> */}
-              {/* </div> */}
-              {/* <div className="absolute top-full left-0 w-full flex justify-center">
-                <NavigationMenu.Viewport className="relative h-[var(--radix-navigation-menu-viewport-height)] w-[var(--radix-navigation-menu-viewport-width)] transition-all hidden" />
-              </div> */}
             </nav>
           </NavigationMenu.Root>
           <div className="flex-1" />
