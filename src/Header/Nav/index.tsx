@@ -42,7 +42,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                 {nestedNavItems.map(({ label, links }, i) => {
                   return (
                     <NavigationMenu.Item key={i} className="relative">
-                      <NavigationMenu.Trigger className="group flex items-center gap-[2px] hidden md:block px-2 py-8 text-sm font-bold uppercase tracking-widest hover:text-red-800">
+                      <NavigationMenu.Trigger className="group flex items-center gap-[2px] hidden md:block px-2 py-8 text-sm font-bold uppercase tracking-wide hover:text-red-800">
                         <div className="menu-trigger">
                           {label}
                           <svg
@@ -112,7 +112,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                       <NavigationMenu.Link asChild>
                         <div className="menu-item p-3">
                           <CMSLink
-                            className="text-base font-sans hover:text-red-800 font-bold uppercase tracking-widest"
+                            className="text-base font-sans hover:text-red-800 font-bold uppercase tracking-wide"
                             key={i}
                             {...link}
                           />
