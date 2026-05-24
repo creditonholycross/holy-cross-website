@@ -14,15 +14,6 @@ import { Media } from '@/components/Media'
 import { link } from 'fs'
 import { cn } from '@/utilities/ui'
 import { Logo } from '@/components/Logo/Logo'
-// import {
-//   NavigationMenu,
-//   NavigationMenuContent,
-//   NavigationMenuItem,
-//   NavigationMenuLink,
-//   NavigationMenuList,
-//   NavigationMenuTrigger,
-//   NavigationMenuViewport,
-// } from '@/components/ui/navigation-menu'
 
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const navItems = data?.navItems || []
@@ -55,7 +46,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                         <div className="menu-trigger">
                           {label}
                           <svg
-                            className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                            className="relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
                             fill="none"
                             viewBox="0 0 12 12"
                             stroke="currentColor"
@@ -114,12 +105,6 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                           </ul>
                         </div>
                       </NavigationMenu.Content>
-                      {/* <NavigationMenu.Indicator className="NavigationMenuIndicator">
-                      <div className="Arrow" />
-                    </NavigationMenu.Indicator> */}
-                      {/* <div className="absolute top-full left-1/2 -translate-x-1/2 z-50">
-                      <NavigationMenu.Viewport className="w-[var(--radix-navigation-menu-viewport-width)] h-[var(--radix-navigation-menu-viewport-height)] origin-[top_center] transition-[width,height] duration-300" />
-                    </div> */}
                     </NavigationMenu.Item>
                   )
                 })}

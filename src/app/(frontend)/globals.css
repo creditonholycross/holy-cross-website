@@ -417,25 +417,6 @@ html[data-theme='light'] {
   position: relative;
 }
 
-/* .NavigationMenuViewport {
-  position: absolute;
-  top: 100%;
-  background-color: white;
-  border: 1px solid #f3f4f6;
-  border-radius: 0.5rem; 
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); 
-  overflow: hidden;
-  z-index: 50;
-
-  width: var(--radix-navigation-menu-viewport-width);
-  height: var(--radix-navigation-menu-viewport-height);
-  
-  left: var(--radix-navigation-menu-viewport-position);
-  transform: translateX(-50%); 
-  
-  transition: width 200ms ease, height 200ms ease, left 200ms ease;
-} */
-
 .NavigationMenuContent {
   transform-origin: top center;
   margin-top: 4px;
@@ -453,56 +434,6 @@ html[data-theme='light'] {
 	animation-timing-function: ease;
 }
 
-/* Use a class like '.is-open' which you toggle via JavaScript */
-/* .menu-trigger.is-open .chevron {
-  transform: rotate(180deg);
-}
-
-.NavigationMenuRoot {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	z-index: 1;
-}
-
-.ViewportPosition {
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	top: 100%;
-	left: 0;
-	perspective: 2000px;
-}
-
-.NavigationMenuViewport {
-	position: relative;
-	transform-origin: top center;
-	margin-top: 10px;
-	background-color: white;
-	border-radius: 6px;
-	overflow: hidden;
-  width: 100%;
-	box-shadow:
-		hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-		hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
-	height: var(--radix-navigation-menu-viewport-height);
-	transition:
-		width,
-		height,
-		300ms ease;
-}
-
-
-.NavigationMenuContent {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	animation-duration: 250ms;
-	animation-timing-function: ease;
-}
-  */
 .NavigationMenuContent[data-motion="from-start"] {
 	animation-name: enterFromLeft;
 }
@@ -515,34 +446,3 @@ html[data-theme='light'] {
 .NavigationMenuContent[data-motion="to-end"] {
 	animation-name: exitToRight;
 }
-
-/* .ListItemLink {
-	display: block;
-	outline: none;
-	text-decoration: none;
-	user-select: none;
-	padding: 12px;
-	border-radius: 6px;
-	font-size: 15px;
-	line-height: 1;
-}
-
-
-.NavigationMenuIndicator {
-	display: flex;
-	align-items: flex-end;
-	justify-content: center;
-	height: 10px;
-	top: 100%;
-	overflow: hidden;
-	z-index: 1;
-	transition:
-		width,
-		transform 250ms ease;
-}
-.NavigationMenuIndicator[data-state="visible"] {
-	animation: fadeIn 200ms ease;
-}
-.NavigationMenuIndicator[data-state="hidden"] {
-	animation: fadeOut 200ms ease;
-} */
