@@ -61,49 +61,47 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                           </svg>
                         </div>
                       </NavigationMenu.Trigger>
-                      <NavigationMenu.Content
-                        className="NavigationMenuContent absolute top-full left-1/2 mt-0 z-50 w-max border-b-4 border-red-800 bg-white shadow-xl transition-all duration-200 ease-out
-                         -translate-x-1/2 translate-y-0 opacity-0 scale-95 pointer-events-none
-                         data-[state=open]:translate-y-0 data-[state=open]:opacity-100 data-[state=open]:scale-100 data-[state=open]:pointer-events-auto"
-                      >
-                        <div className="">
-                          <ul
-                            className={`shadow-xl border border-gray-100 rounded-lg min-w-[200px] pl-3 pr-8 gap-x-2 columns-${links && links.length > 0 ? Math.ceil(links.length / 6) : '1'} `}
-                          >
-                            <div className="">
-                              {links?.map(({ link }, i) => {
-                                return (
-                                  <li key={i} className="py-2 break-inside-avoid">
-                                    <NavigationMenu.Link asChild>
-                                      <div className="menu-item p-3">
-                                        <CMSLink
-                                          className="text-xl font-sans hover:text-red-800"
-                                          key={i}
-                                          {...link}
-                                        />
-                                        <svg
-                                          className="arrow text-red-800 mt-1 ml-1"
-                                          width="16"
-                                          height="16"
-                                          viewBox="0 0 16 16"
-                                          fill="none"
-                                        >
-                                          <path
-                                            d="M6 12L10 8L6 4"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                          />
-                                        </svg>
-                                      </div>
-                                    </NavigationMenu.Link>
-                                  </li>
-                                )
-                              })}
-                            </div>
-                          </ul>
-                        </div>
+                      <NavigationMenu.Content className="NavigationMenuContent absolute top-full left-1/2 mt-0 z-50 w-max border-b-4 border-red-800 bg-white shadow-xl transition-all">
+                        <ul
+                          className={`shadow-xl border border-gray-100 rounded-lg min-w-[200px] pl-3 pr-8 gap-x-2 ${
+                            links && links.length > 12
+                              ? 'columns-3'
+                              : links && links.length > 6
+                                ? 'columns-2'
+                                : 'columns-1'
+                          } `}
+                        >
+                          {links?.map(({ link }, i) => {
+                            return (
+                              <li key={i} className="py-2 break-inside-avoid">
+                                <NavigationMenu.Link asChild>
+                                  <div className="menu-item p-3">
+                                    <CMSLink
+                                      className="text-xl font-sans hover:text-red-800"
+                                      key={i}
+                                      {...link}
+                                    />
+                                    <svg
+                                      className="arrow text-red-800 mt-1 ml-1"
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                    >
+                                      <path
+                                        d="M6 12L10 8L6 4"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </div>
+                                </NavigationMenu.Link>
+                              </li>
+                            )
+                          })}
+                        </ul>
                       </NavigationMenu.Content>
                     </NavigationMenu.Item>
                   )
