@@ -361,12 +361,6 @@
           "notNull": false,
           "default": "'oneThird'"
         },
-        "media_id": {
-          "name": "media_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
         "rich_text": {
           "name": "rich_text",
           "type": "jsonb",
@@ -444,37 +438,9 @@
           "concurrently": false,
           "method": "btree",
           "with": {}
-        },
-        "pages_blocks_content_columns_media_idx": {
-          "name": "pages_blocks_content_columns_media_idx",
-          "columns": [
-            {
-              "expression": "media_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
         }
       },
       "foreignKeys": {
-        "pages_blocks_content_columns_media_id_media_id_fk": {
-          "name": "pages_blocks_content_columns_media_id_media_id_fk",
-          "tableFrom": "pages_blocks_content_columns",
-          "tableTo": "media",
-          "columnsFrom": [
-            "media_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
-        },
         "pages_blocks_content_columns_parent_id_fk": {
           "name": "pages_blocks_content_columns_parent_id_fk",
           "tableFrom": "pages_blocks_content_columns",
@@ -2320,12 +2286,6 @@
           "notNull": false,
           "default": "'oneThird'"
         },
-        "media_id": {
-          "name": "media_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
         "rich_text": {
           "name": "rich_text",
           "type": "jsonb",
@@ -2409,37 +2369,9 @@
           "concurrently": false,
           "method": "btree",
           "with": {}
-        },
-        "_pages_v_blocks_content_columns_media_idx": {
-          "name": "_pages_v_blocks_content_columns_media_idx",
-          "columns": [
-            {
-              "expression": "media_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
         }
       },
       "foreignKeys": {
-        "_pages_v_blocks_content_columns_media_id_media_id_fk": {
-          "name": "_pages_v_blocks_content_columns_media_id_media_id_fk",
-          "tableFrom": "_pages_v_blocks_content_columns",
-          "tableTo": "media",
-          "columnsFrom": [
-            "media_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
-        },
         "_pages_v_blocks_content_columns_parent_id_fk": {
           "name": "_pages_v_blocks_content_columns_parent_id_fk",
           "tableFrom": "_pages_v_blocks_content_columns",
@@ -11016,6 +10948,6 @@
     "tables": {},
     "columns": {}
   },
-  "id": "a305d301-70c0-4d23-8973-b6ef8000c065",
+  "id": "31ef624a-fe89-47a7-92dc-aa2e0e002f90",
   "prevId": "00000000-0000-0000-0000-000000000000"
 }
