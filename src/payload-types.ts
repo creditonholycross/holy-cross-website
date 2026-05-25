@@ -506,6 +506,7 @@ export interface ContentBlock {
   columns?:
     | {
         size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+        media?: (number | null) | Media;
         richText?: {
           root: {
             type: string;
@@ -799,6 +800,7 @@ export interface Form {
 export interface TextImageBlock {
   size?: ('oneThird' | 'half' | 'twoThirds') | null;
   imageAlignment?: ('right' | 'left') | null;
+  imageSize?: ('square' | 'full') | null;
   richText?: {
     root: {
       type: string;
@@ -1245,6 +1247,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
     | T
     | {
         size?: T;
+        media?: T;
         richText?: T;
         enableLink?: T;
         link?:
@@ -1303,6 +1306,7 @@ export interface FormBlockSelect<T extends boolean = true> {
 export interface TextImageBlockSelect<T extends boolean = true> {
   size?: T;
   imageAlignment?: T;
+  imageSize?: T;
   richText?: T;
   media?: T;
   id?: T;
