@@ -46,6 +46,21 @@ export const TextImageBlock: Block = {
       ],
     },
     {
+      name: 'imageSize',
+      type: 'select',
+      defaultValue: 'square',
+      options: [
+        {
+          label: 'Square',
+          value: 'square',
+        },
+        {
+          label: 'Full',
+          value: 'full',
+        },
+      ],
+    },
+    {
       name: 'richText',
       type: 'richText',
       editor: lexicalEditor({

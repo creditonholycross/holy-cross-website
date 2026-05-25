@@ -34,6 +34,12 @@ const columnFields: Field[] = [
     ],
   },
   {
+    name: 'media',
+    type: 'upload',
+    relationTo: 'media',
+    required: false,
+  },
+  {
     name: 'richText',
     type: 'richText',
     editor: lexicalEditor({
